@@ -6,7 +6,7 @@
 
 ## Sobre a atividade
 
-A atividade teve como objetivo realizar uma análise dos registros de um servidor Ubuntu, entendendo como o sistema armazena informações sobre seu funcionamento e como esses registros podem ajudar a acompanhar acessos e identificar situações que merecem atenção.
+A atividade teve como objetivo realizar uma análise dos registros de um servidor GNU/Linux, usando a distribuição Ubuntu 26.04.01-live-server, entendendo como o sistema armazena informações sobre seu funcionamento e como esses registros podem ajudar a acompanhar acessos e identificar situações que merecem atenção.
 
 ## O que foi realizado
 
