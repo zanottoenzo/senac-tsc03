@@ -32,4 +32,4 @@ A atividade permitiu colocar em prática a análise de registros de um servidor 
 
 Além da análise técnica, foi possível organizar as evidências, documentar os procedimentos e utilizar ferramentas de inteligência artificial como apoio na interpretação dos dados.
 
-**Documentação técnica e evidências:** disponíveis nos arquivos Markdown e na pasta `Evidências/` desta atividade.
+**Documentação técnica e evidências:** disponíveis nos arquivos Markdown e na pasta `Imagens/` desta atividade.
