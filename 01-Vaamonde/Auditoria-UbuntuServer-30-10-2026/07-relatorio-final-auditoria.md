@@ -6,46 +6,42 @@
 
 ## 1. Objetivo
 
-Realizar uma análise do Ubuntu Server, observando seus registros e verificando informações importantes sobre o funcionamento do sistema e os acessos realizados. O objetivo foi conhecer melhor como essas informações podem ajudar a acompanhar as atividades do servidor e identificar situações que merecem atenção.
+O objetivo desta atividade foi conhecer melhor os registros do Ubuntu Server e entender como eles podem ajudar a acompanhar o que acontece no sistema, principalmente em relação aos acessos realizados pelo SSH.
 
-## 2. Atividades realizadas
+## 2. O que foi feito
 
-Durante a atividade, foram realizadas as seguintes etapas:
+Primeiro, verificamos a data, a hora e a sincronização do servidor. Em seguida, acessamos a pasta `/var/log`, onde ficam armazenados diversos registros do sistema.
 
-- Conferência da data, hora e sincronização do servidor.
-- Consulta aos arquivos de registro disponíveis na pasta `/var/log`.
-- Verificação dos registros relacionados ao serviço SSH.
-- Análise das tentativas de acesso ao servidor.
-- Organização das informações e das capturas de tela para documentação.
+Depois, consultamos os registros do SSH para observar quando o serviço foi iniciado e quais tentativas de acesso foram realizadas. Também organizamos as informações encontradas em arquivos e capturas de tela, utilizando o ChatGPT e o Claude como apoio na análise.
 
-## 3. Resultados encontrados
+## 3. O que foi encontrado
 
-A conferência inicial mostrou que a data e a hora do servidor estavam configuradas corretamente e sincronizadas.
+Durante a atividade, foi possível identificar os principais arquivos de registro do servidor, como `auth.log`, `syslog` e `kern.log`, que ajudam a entender diferentes acontecimentos do sistema.
 
-Na consulta aos registros, foram encontrados arquivos que armazenam informações sobre o funcionamento do sistema, autenticações, atualizações e outros acontecimentos importantes.
+Na consulta aos acessos SSH, foram encontrados:
 
-Na análise dos acessos SSH, foram identificados 11 acessos realizados com sucesso e uma tentativa de acesso malsucedida. Essa tentativa aconteceu em 28/10, mas foi seguida por um acesso bem-sucedido poucos segundos depois.
+- 11 acessos realizados com sucesso;
+- 1 tentativa de acesso que não foi aceita;
+- Nenhum registro de tentativa utilizando um usuário inexistente nos resultados consultados.
 
-Não foram encontrados registros de tentativas utilizando usuários inexistentes nos resultados consultados.
+A tentativa que não foi aceita aconteceu em 28/10, utilizando o usuário `senac` e o endereço IP `10.24.86.17`. Poucos segundos depois, foi registrado um acesso bem-sucedido pelo mesmo endereço.
+
+Também foram identificados acessos realizados a partir do IP `10.24.86.21`.
 
 ## 4. Observações
 
-A análise mostrou a importância de acompanhar os registros do servidor, pois eles permitem entender melhor o que acontece no sistema e consultar informações sobre os acessos realizados.
+A análise mostrou que os registros do servidor são importantes para acompanhar os acessos e identificar situações que merecem atenção.
 
-A tentativa de acesso malsucedida merece atenção, mas, considerando apenas os registros encontrados, não é possível afirmar que houve uma invasão.
-
-Também foi identificada uma diferença entre os horários de dois registros relacionados ao SSH, sendo necessário investigar melhor essa situação.
+A tentativa de acesso que não foi aceita, por exemplo, deve ser observada, mas não significa necessariamente que houve uma invasão. Também identificamos alguns pontos que podem ser verificados futuramente, como as configurações de acesso SSH e as regras do firewall.
 
 ## 5. Conclusão
 
-A atividade permitiu conhecer melhor os registros do Ubuntu Server e entender como eles podem ser utilizados para acompanhar o funcionamento do sistema e verificar os acessos realizados.
+Com esta atividade, conseguimos conhecer melhor onde o Ubuntu Server armazena seus registros e como consultar essas informações para acompanhar o funcionamento do sistema.
 
-Com as consultas e análises feitas, foi possível encontrar informações importantes, identificar uma tentativa de acesso malsucedida e perceber a importância de manter o acompanhamento dos registros.
+A análise dos acessos SSH permitiu identificar tentativas bem-sucedidas e malsucedidas, além de observar informações como usuários, horários e endereços IP.
 
-Assim, o objetivo da atividade foi alcançado, proporcionando uma experiência prática de análise e auditoria de um servidor.
+No geral, a atividade mostrou como a consulta aos registros pode ajudar na identificação de situações fora do comum e no acompanhamento da segurança de um servidor. Também reforçou a importância de manter essas informações organizadas para facilitar futuras verificações e auditorias.
 
 ---
 
-**Documentos complementares:** arquivos de análise `01`, `02`, `03`, `05` e `06`.
-
-**Evidências:** pasta `Imagens/`.
+**Documentos de apoio:** arquivos de análise e capturas de tela disponíveis nesta pasta.
