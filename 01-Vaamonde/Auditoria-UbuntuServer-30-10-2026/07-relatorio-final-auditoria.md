@@ -1,62 +1,48 @@
 
-# Relatório Final de Auditoria – Ubuntu Server
+# Relatório Final – Auditoria do Ubuntu Server
 
 **Data:** 30/10/2026  
 **Unidade curricular:** UC8 – Planejar e executar auditoria de sistemas
 
 ## 1. Objetivo
 
-Analisar os registros do Ubuntu Server, verificar a data e hora do sistema e identificar eventos relacionados ao serviço SSH.
+Realizar uma análise do Ubuntu Server, observando seus registros e verificando informações importantes sobre o funcionamento do sistema e os acessos realizados. O objetivo foi conhecer melhor como essas informações podem ajudar a acompanhar as atividades do servidor e identificar situações que merecem atenção.
 
-## 2. Procedimentos realizados
+## 2. Atividades realizadas
 
-Foram executados os seguintes procedimentos:
+Durante a atividade, foram realizadas as seguintes etapas:
 
-- Verificação de data, hora e sincronização com `timedatectl`.
-- Inspeção dos arquivos de log em `/var/log`.
-- Consulta aos registros SSH com `journalctl`.
-- Identificação de tentativas de autenticação com `grep`.
-- Organização das evidências e análise dos resultados com apoio do ChatGPT e Claude.
+- Conferência da data, hora e sincronização do servidor.
+- Consulta aos arquivos de registro disponíveis na pasta `/var/log`.
+- Verificação dos registros relacionados ao serviço SSH.
+- Análise das tentativas de acesso ao servidor.
+- Organização das informações e das capturas de tela para documentação.
 
 ## 3. Resultados encontrados
 
-A verificação do sistema indicou que o horário estava sincronizado, com fuso `America/Sao_Paulo`.
+A conferência inicial mostrou que a data e a hora do servidor estavam configuradas corretamente e sincronizadas.
 
-No diretório `/var/log`, foram identificados arquivos importantes, como `auth.log`, `syslog`, `kern.log`, `dpkg.log` e `journal/`, utilizados para registrar eventos do sistema.
+Na consulta aos registros, foram encontrados arquivos que armazenam informações sobre o funcionamento do sistema, autenticações, atualizações e outros acontecimentos importantes.
 
-Na análise dos registros SSH, foram identificados:
+Na análise dos acessos SSH, foram identificados 11 acessos realizados com sucesso e uma tentativa de acesso malsucedida. Essa tentativa aconteceu em 28/10, mas foi seguida por um acesso bem-sucedido poucos segundos depois.
 
-- 11 autenticações aceitas.
-- 1 tentativa de autenticação malsucedida.
-- Nenhum registro de usuário inválido nos resultados consultados.
+Não foram encontrados registros de tentativas utilizando usuários inexistentes nos resultados consultados.
 
-A tentativa malsucedida ocorreu em 28/10, para o usuário `senac`, a partir do IP `10.24.86.17`. Sete segundos depois, houve uma autenticação aceita pelo mesmo endereço.
+## 4. Observações
 
-Também foram encontrados acessos realizados pelo IP `10.24.86.21`.
+A análise mostrou a importância de acompanhar os registros do servidor, pois eles permitem entender melhor o que acontece no sistema e consultar informações sobre os acessos realizados.
 
-## 4. Pontos de atenção
+A tentativa de acesso malsucedida merece atenção, mas, considerando apenas os registros encontrados, não é possível afirmar que houve uma invasão.
 
-- Foram encontrados registros de autenticação SSH por senha.
-- O serviço SSH estava escutando em IPv4 e IPv6 na porta 22.
-- Uma tentativa malsucedida merece acompanhamento, mas não comprova uma invasão.
-- Foi identificada uma diferença de horário entre um registro de autenticação e o registro de inicialização do SSH, que precisa ser investigada.
-- As configurações de firewall e segurança do SSH não foram verificadas completamente.
+Também foi identificada uma diferença entre os horários de dois registros relacionados ao SSH, sendo necessário investigar melhor essa situação.
 
-## 5. Recomendações
+## 5. Conclusão
 
-- Avaliar o uso de autenticação SSH por chave pública.
-- Verificar as configurações do SSH e do firewall.
-- Avaliar a utilização do Fail2ban.
-- Acompanhar os registros de autenticação.
-- Manter os arquivos de auditoria atualizados.
+A atividade permitiu conhecer melhor os registros do Ubuntu Server e entender como eles podem ser utilizados para acompanhar o funcionamento do sistema e verificar os acessos realizados.
 
-## 6. Conclusão
+Com as consultas e análises feitas, foi possível encontrar informações importantes, identificar uma tentativa de acesso malsucedida e perceber a importância de manter o acompanhamento dos registros.
 
-A auditoria permitiu analisar os principais registros do Ubuntu Server e identificar eventos de autenticação SSH.
-
-Foram encontrados acessos bem-sucedidos e uma tentativa malsucedida, sem evidências suficientes para confirmar uma invasão.
-
-Os procedimentos realizados contribuíram para compreender o funcionamento dos registros do sistema e identificar melhorias que podem fortalecer a segurança do servidor.
+Assim, o objetivo da atividade foi alcançado, proporcionando uma experiência prática de análise e auditoria de um servidor.
 
 ---
 
